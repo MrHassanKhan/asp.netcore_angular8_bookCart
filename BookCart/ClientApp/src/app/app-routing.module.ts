@@ -15,13 +15,13 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 const appRoutes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: UserRegistrationComponent },
+  { path: 'register', component: LoginComponent },
   { path: 'books/details/:id', component: BookDetailsComponent },
   { path: 'shopping-cart', component: ShoppingcartComponent },
   { path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard] },
   { path: 'myorders', component: MyOrdersComponent, canActivate: [AuthGuard] },
   {
-    path: 'admin/books',
+    path: 'admin',
     loadChildren: () => import('./admin/admin.module').then(mod => mod.AdminModule),
     canLoad: [AdminAuthGuard],
     canActivate: [AdminAuthGuard]

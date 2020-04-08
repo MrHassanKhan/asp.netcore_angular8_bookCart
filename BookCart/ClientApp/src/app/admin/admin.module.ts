@@ -7,12 +7,17 @@ import { BookFormComponent } from '../components/admin/book-form/book-form.compo
 import { ManageBooksComponent } from '../components/admin/manage-books/manage-books.component';
 import { NgMaterialModule } from '../ng-material/ng-material.module';
 import { DeleteBookComponent } from '../components/admin/delete-book/delete-book.component';
+import { ManageCategoriesComponent } from '../components/admin/manage-categories/manage-categories.component';
+import { CategoryFormComponent } from '../components/admin/category-form/category-form.component';
 
 @NgModule({
   declarations: [
     BookFormComponent,
     ManageBooksComponent,
-    DeleteBookComponent
+    DeleteBookComponent,
+
+    ManageCategoriesComponent,
+    CategoryFormComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,30 @@
+<div class="docs-example-viewer-wrapper">
+    <div class="docs-example-viewer-title mat-elevation-z2">
+        <div class="docs-example-viewer-title-spacer">
+            <h3>{{formTitle}} Category</h3>
+        </div>
+    </div>
+    <div class="docs-example-viewer-body">
+        <div class="left-div">
+            <mat-card class="mat-elevation-z2">
+                <mat-card-content>
+                    <form enctype="multipart/form-data" [formGroup]="categoryForm" (ngSubmit)="saveBookData()">
+                        <mat-form-field class="full-width" *ngIf="formTitle==='Edit'">
+                            <input matInput placeholder="Id" formControlName="categoryId" required>
+                            <!-- <mat-error *ngIf="title.touched && title.invalid">Title is required</mat-error> -->
+                        </mat-form-field>
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="Category Name" formControlName="categoryName" required>
+                            <mat-error *ngIf="categoryName.touched && categoryName.invalid">Category Name is required</mat-error>
+                        </mat-form-field>
+                        <mat-card-actions align="right">
+                            <div fxFlex></div>
+                            <button type="submit" mat-raised-button color="primary">SAVE</button>
+                            <button type="button" mat-raised-button color="warn" (click)="cancel()">CANCEL</button>
+                        </mat-card-actions>
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

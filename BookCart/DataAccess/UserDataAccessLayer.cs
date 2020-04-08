@@ -43,7 +43,7 @@ namespace BookCart.DataAccess
         {
             try
             {
-                userData.UserTypeId = 2;
+                userData.UserTypeId = 1;
                 _dbContext.UserMaster.Add(userData);
                 _dbContext.SaveChanges();
                 return 1;

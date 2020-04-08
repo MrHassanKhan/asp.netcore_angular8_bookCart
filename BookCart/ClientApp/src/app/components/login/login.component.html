@@ -1,4 +1,58 @@
-<div class="docs-example-viewer-wrapper">
+<section>
+    <div class="container">
+      <div class="form sign-in-form">
+        <div class="wrapper">
+          <form [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
+            <h1>Sign In</h1>
+            <p>use your email and password to sign in</p>
+            <input type="email" formControlName="username" placeholder="Email">
+            <input type="password" formControlName="password" placeholder="password">
+            <button [disabled]="!loginForm.valid">Sign In</button>
+          </form>
+        </div>
+      </div>
+      <div class="form sign-up-form active">
+        <div class="wrapper">
+          <form action="#">
+            <h1>Sign up</h1>
+            <p>Please, provide all the correct info to create an account</p>
+            <input type="text" placeholder="Full Name">
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="password">
+            <button>Sign Up</button>
+          </form>
+        </div>
+      </div>
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-left">
+            <h1>Create Account</h1>
+            <p>or</p>
+            <button id="signInButton" (click)="loginContainerClicked()">Log In</button>
+          </div>
+          <div class="overlay-right">
+            <h1>Please, Log In</h1>
+            <p>or</p>
+            <button id="signUpButton" (click)="signUpContainerClicked()">Create Account</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- For The Bottom banner -->
+  <!-- <div class="bottom-text">
+    <h2>Made with ❤ by Web Cifar | Watch How We made this, <a href="https://youtu.be/7FbpuWOffc0" target="_blank">Click Here</a></h2>
+  </div> -->
+
+
+
+
+
+
+
+
+<!-- <div class="docs-example-viewer-wrapper">
     <div class="docs-example-viewer-title mat-elevation-z2">
         <div class="docs-example-viewer-title-spacer">
             <h4>Login</h4>
@@ -37,4 +91,4 @@
             </mat-card>
         </div>
     </div>
-</div>
+</div> -->

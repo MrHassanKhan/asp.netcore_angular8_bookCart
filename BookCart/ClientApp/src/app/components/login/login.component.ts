@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
 import { UserService } from 'src/app/services/user.service';
@@ -13,11 +13,18 @@ import { first } from 'rxjs/operators';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit, OnDestroy {
+export class LoginComponent implements OnInit, OnDestroy, AfterViewInit {
 
   showPassword = true;
   userId;
   userDataSubscription: any;
+
+  signIn: any;
+  signUp: any;
+  signInForm: any;
+  signUpForm: any;
+  overlay_container: any;
+  overlay: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -44,6 +51,28 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.userDataSubscription = this.subscriptionService.userData.asObservable().subscribe((data: User) => {
       this.userId = data.userId;
     });
+  }
+
+  ngAfterViewInit() {
+
+    this.signIn = document.querySelector('#signInButton');
+    this.signUp = document.querySelector('#signUpButton');
+    this.signInForm = document.querySelector('.container .sign-in-form');
+    this.signUpForm = document.querySelector('.container .sign-up-form');
+    this.overlay_container = document.querySelector('.container .overlay-container');
+    this.overlay = document.querySelector('.container .overlay-container .overlay');
+  }
+  loginContainerClicked() {
+    this.overlay_container.style.transform = 'translateX(100%)';
+    this.overlay.style.transform = 'translateX(-50%)';
+    this.signInForm.classList.add('active');
+    this.signUpForm.classList.remove('active');
+  }
+  signUpContainerClicked() {
+    this.overlay_container.style.transform = 'translateX(0)';
+    this.overlay.style.transform = 'translateX(0)';
+    this.signUpForm.classList.add('active');
+    this.signInForm.classList.remove('active');
   }
 
   login() {
